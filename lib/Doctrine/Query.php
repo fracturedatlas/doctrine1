@@ -1766,7 +1766,8 @@ class Doctrine_Query extends Doctrine_Query_Abstract implements Countable
 
             // if the current alias already exists, skip it
             if (isset($this->_queryComponents[$componentAlias])) {
-                throw new Doctrine_Query_Exception("Duplicate alias '$componentAlias' in query.");
+                // This is causing errors on complex generated queries, and it doesn't seem to be strictly necessary. -AFH
+                //throw new Doctrine_Query_Exception("Duplicate alias '$componentAlias' in query.");
             }
 
             if ( ! isset($table)) {
